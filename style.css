@@ -101,3 +101,9 @@ html, body {
     
   }
 }
+
+@media (orientation:portrait) {
+  .clock1{
+    transform: rotate(180deg);
+  }
+}
