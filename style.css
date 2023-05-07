@@ -1,0 +1,103 @@
+*{
+  font-family: Figtree;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap:5px;
+  background:black;
+}
+
+.clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 6em;
+  height: 50%;
+  background-color: #1c1c1c;
+  color: #fff;
+}
+
+.clock.active {
+  background-color: #FFD600;
+  color: #1c1c1c;
+}
+
+.settings {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right:0;
+  transform: translate(0, -50%);
+  background-image: url(divider.svg);
+  background-size:auto 100%;
+  background-position: center center;
+  padding:6px;
+  z-index: 1;
+  text-align: center;
+  line-height: 0;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index:10;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.setting {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid #1c1c1c;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+  color: #1c1c1c;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.setting:hover {
+  background-color: #1c1c1c;
+  color: #fff;
+}
+
+@media (orientation: landscape) {
+  .container {
+    flex-direction: row;
+    height: 100%;
+  }
+
+  .clock {
+    width: 50%;
+    height: 100%;
+  }
+
+  .settings{
+    transform: rotate(90deg) translateX(-34px);
+    
+  }
+}
