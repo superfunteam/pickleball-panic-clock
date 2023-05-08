@@ -26,11 +26,17 @@ html, body {
   height: 50%;
   background-color: #1c1c1c;
   color: #fff;
+  transition: .35s ease background-color;
 }
 
 .clock.active {
   background-color: #FFD600;
   color: #1c1c1c;
+}
+
+.clock.loser {
+  background-color: #FF0000;
+  color: #ffffff;
 }
 
 .settings {
@@ -61,6 +67,11 @@ html, body {
   z-index:10;
 }
 
+.modal .heading{
+  font-size:1.5rem;
+  font-weight: 600;
+}
+
 .modal-content {
   background-color: #fff;
   border-radius: 10px;
@@ -80,9 +91,16 @@ html, body {
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
+
+
 .setting:hover {
   background-color: #1c1c1c;
   color: #fff;
+}
+
+.label{
+  display: inline-block;
+  font-size:1.2rem;
 }
 
 @media (orientation: landscape) {

@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let settings = document.querySelector('.settings');
   let modal = document.querySelector('.modal');
   let tickingSound = new Audio('tick.mp3');
+  let buzzerSound = new Audio('buzzer.mp3');
 
   function startClock(clock) {
     if (timer) {
@@ -26,7 +27,24 @@ document.addEventListener('DOMContentLoaded', () => {
         if (minutes === 0) {
           clearInterval(timer);
           activeClock.classList.remove('active');
+          activeClock.classList.add('loser');
+          activeClock.textContent = 'OUT';
           activeClock = null;
+
+          // Stop the ticking sound and play the buzzer sound
+          tickingSound.pause();
+          buzzerSound.currentTime = 0;
+          buzzerSound.play();
+
+          // Wait for 10 seconds, then reset both clocks and stop all sound effects
+          setTimeout(() => {
+            resetClocks(2); // Reset clocks to the default time (e.g., 2 minutes)
+            tickingSound.pause();
+            buzzerSound.pause();
+            clock1.classList.remove('loser');
+            clock2.classList.remove('loser');
+          }, 10000);
+          return;
         } else {
           minutes -= 1;
           seconds = 59;
